@@ -7,12 +7,11 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-cheap-module-source-map',
     entry: {
-        cookie: path.resolve(__dirname, 'src/cookie.y.js')
+        test: path.resolve(__dirname, 'test/test.js')
     },
     devServer: {
         contentBase: './dist',
-        hot: true,
-        hotOnly: true
+        hot: true
     },
     module: {
         rules: [
@@ -26,8 +25,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'test/index.html')
         }),
-        new CleanWebpackPlugin(['dist']),
-        new webpack.HotModleReplacementPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     output: {
         filename: '[name].js',
