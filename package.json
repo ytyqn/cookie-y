@@ -1,6 +1,6 @@
 {
   "name": "cookie-y",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "cookie get set and remove etc.",
   "main": "src/cookie.y.js",
   "scripts": {
