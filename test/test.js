@@ -14,7 +14,7 @@ showCookie()
 let button = document.createElement('button')
 button.innerText='set and get'
 button.onclick = () => {
-    Cookie.set('dream', 'Y', 1)
+    Cookie.set('dream', 'Y')
     cookie = Cookie.get('dream')
     showCookie()
 }

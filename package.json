@@ -4,7 +4,8 @@
   "description": "cookie get set and remove etc.",
   "main": "src/cookie.y.js",
   "scripts": {
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "build": "webpack --config webpack.build.js"
   },
   "repository": {
     "type": "git",
