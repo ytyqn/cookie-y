@@ -2,7 +2,7 @@
 ### 安装
 ###### 通过npm安装
 ```
-npm run install cookie-y --save
+npm install cookie-y --save
 ```
 ###### 通过CDN连接
 ```
