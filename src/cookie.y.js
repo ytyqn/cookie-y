@@ -19,7 +19,7 @@ export const setCookie = (name, value, expire) => {
     let exdate = new Date()
     if(typeof(expire) === 'number'){
         exdate.setSeconds(exdate.getDate() + expire)
-    } else {
+    } else if(typeof(expire) === 'string'){
         let day = /[0-9]*d/i
         let month = /[0-9]*M/
         let year = /[0-9]*y/i
