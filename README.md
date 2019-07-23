@@ -20,6 +20,9 @@ Cookie.setTimeZone(8)
 // 设置Cookie, 无过期时间设置
 Cookie.set('name', ‘Y’)
 
+// 设置Cookie,JSON数据, 无过期时间设置
+Cookie.set('name', {id:1,test: '1212'})
+
 // 设置Cookie, 及过期时间设置
 // 过期时间默认单位为秒,过期时间为1小时
 Cookie.set('name', ‘Y’, 3600000)

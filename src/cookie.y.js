@@ -3,17 +3,21 @@ const Cookie = {
 }
 
 export const setTimeZone = (num) => {
-  Cookie.timezone = num
+    Cookie.timezone = num
 }
 
 export const getCookie = (name) => {
-  let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
-  let arr = document.cookie.match(reg)
-  if (arr) {
-    return arr[2]
-  } else {
-    return null
-  }
+    let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+    let arr = document.cookie.match(reg)
+    if (arr) {
+        if (arr[2].indexOf(':') > -1 && typeof(JSON.parse(arr[2])) === 'object') {
+            return JSON.parse(arr[2])
+        } else {
+            return arr[2]
+        }
+    } else {
+        return null
+    }
 }
 export const setCookie = (name, value, expire) => {
     let exdate = new Date()
@@ -43,17 +47,25 @@ export const setCookie = (name, value, expire) => {
             console.error('Error: %s (%i)','expire is wrong!',500)
         }
     }
+
+    let cookieValue = ''
+    if (typeof(value) === 'object') {
+        cookieValue = JSON.stringify(value)
+    }
+    if (typeof(value) === 'string') {
+        cookieValue = escape(value)
+    }
     exdate.setTime(exdate.getTime() + Cookie.timezone*3600*1000)
-  document.cookie = name + '=' + escape(value) + ((expire == null) ? '' : ';expires=' + exdate.toGMTString())
+    document.cookie = name + '=' + cookieValue + ((expire == null) ? '' : ';expires=' + exdate.toGMTString())
 }
 
 export const removeCookie = (name) => {
-  let exp = new Date();
-  exp.setTime(exp.getTime() - 1);
-  let cval = getCookie(name);
-  if (cval != null) {
-    document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString();
-  }
+    let exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    let cval = getCookie(name);
+    if (cval != null) {
+        document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString();
+    }
 }
 
 Cookie.get = getCookie
