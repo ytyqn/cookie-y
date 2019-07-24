@@ -1,8 +1,8 @@
 {
   "name": "cookie-y",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "cookie get set and remove etc.",
-  "main": "dist/cookie.75d977436862abbb7f06.js",
+  "main": "src/cookie.y.js",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --config webpack.build.js"

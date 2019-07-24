@@ -4,11 +4,6 @@
 ```
 npm install cookie-y --save
 ```
-###### 通过CDN连接
-```
-<script src="http://qiniu.ytcode.cn/cookie.cf7e898c3d7937b662d6.js"></script>
-```
-
 
 ### 使用
 ```
