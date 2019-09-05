@@ -68,9 +68,21 @@ export const removeCookie = (name) => {
     }
 }
 
+export const clearCookieAll = () => {
+    var date=new Date();
+    date.setTime(date.getTime()-10000);
+    var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+    // console.log("需要删除的cookie名字："+keys);
+    if (keys) {
+        for (var i =  keys.length; i--;)
+            document.cookie=keys[i]+"=0; expire="+date.toGMTString()+"; path=/";
+    }
+}
+
 Cookie.get = getCookie
 Cookie.set = setCookie
 Cookie.remove = removeCookie
 Cookie.setTimeZone = setTimeZone
+Cookie.clearAll = clearCookieAll
 
 export default Cookie
