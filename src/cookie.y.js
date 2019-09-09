@@ -56,7 +56,7 @@ export const setCookie = (name, value, expire) => {
         cookieValue = escape(value)
     }
     exdate.setTime(exdate.getTime() + Cookie.timezone*3600*1000)
-    document.cookie = name + '=' + cookieValue + ((expire == null) ? '' : ';expires=' + exdate.toGMTString())
+    document.cookie = name + '=' + cookieValue + ((expire == null) ? '' : ';expires=' + exdate.toGMTString())+"; path=/"
 }
 
 export const removeCookie = (name) => {
